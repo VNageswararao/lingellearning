@@ -1,0 +1,55 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_coursemodules/coursemodules
+
+    This template renders the content of the coursemodules block.
+
+    Classes required for JS:
+        * none
+
+        Data attributes required for JS:
+        * none
+
+        Context variables required for this template:
+        * coursemodules
+
+       
+
+    Example context (json):
+    {
+        "id": "1",
+        "name": "Basic Maths Quiz",
+        "module": "quiz",
+        "added": "19-Jun-2021",
+        "viewurl":"https://moodlesite/mod/quiz/view.php?id=2"
+    }
+}}
+<div>
+      <ul>
+   {{#activity}}
+   <li><a href="{{viewurl}}">{{id}}-{{name}}-{{added}}{{#completion}}-
+           {{#str}}completed, block_coursemodules {{/str}}
+           {{/completion}}</a></li>
+   {{/activity}}
+   {{^activity}}
+   <li>Activities are not available </li>
+    {{/activity}}
+   </ul>
+    
+</div>
+
